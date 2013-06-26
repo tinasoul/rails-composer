@@ -2563,7 +2563,11 @@ Gem.clear_paths
 say_wizard "Running 'after bundler' callbacks."
 if prefer :templates, 'haml'
   say_wizard "importing html2haml conversion tool"
-  require 'html2haml'
+  begin
+    require 'html2haml'
+  rescue LoadEror
+    say_wizard "Unable to load html2haml, but we thought this might happen. Continuing"
+  end
 end
 if prefer :templates, 'slim'
 say_wizard "importing html2haml and haml2slim conversion tools"
