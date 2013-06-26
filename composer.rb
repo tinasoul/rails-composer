@@ -2565,7 +2565,7 @@ if prefer :templates, 'haml'
   say_wizard "importing html2haml conversion tool"
   begin
     require 'html2haml'
-  rescue LoadEror
+  rescue LoadError
     say_wizard "Unable to load html2haml, but we thought this might happen. Continuing"
   end
 end
